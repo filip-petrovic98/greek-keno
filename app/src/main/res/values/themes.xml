@@ -2,4 +2,9 @@
 <resources>
 
     <style name="Theme.GreekKeno" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.GreekKeno.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/sunglow</item>
+        <item name="postSplashScreenTheme">@style/Theme.GreekKeno</item>
+    </style>
 </resources>
