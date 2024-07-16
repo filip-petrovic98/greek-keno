@@ -1,31 +1,114 @@
 [versions]
-agp = "8.5.0"
-kotlin = "1.9.0"
-coreKtx = "1.13.1"
+agp = "8.5.1"
+coreSplashscreen = "1.0.1"
+kotlin = "1.9.22"
+androidxHiltNavigationCompose = "1.2.0"
+androidxComposeCompiler = "1.5.8"
+navigationCompose = "2.7.7"
+retrofit = "2.11.0"
+runtime = "1.6.8"
 junit = "4.13.2"
 junitVersion = "1.2.1"
-espressoCore = "3.6.1"
+mockk = "1.13.10"
 lifecycleRuntimeKtx = "2.8.3"
 activityCompose = "1.9.0"
-composeBom = "2024.04.01"
+composeBom = "2024.06.00"
+kotlinx-coroutines-test = "1.8.0"
+easy-random = "5.0.0"
+hilt = "2.51"
+ksp = "1.9.22-1.0.18"
+ktlint = "12.1.0"
+room = "2.6.1"
+coreTesting = "2.2.0"
 
 [libraries]
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+
+# UI
+androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
+androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycleRuntimeKtx" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
-androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
-androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "runtime" }
+retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+ui = { group = "androidx.compose.ui", name = "ui" }
+ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
+compose-icons = { group = "androidx.compose.material", name = "material-icons-core-android"}
+compose-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended"}
+
+# Tests
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-core-testing = { module = "androidx.arch.core:core-testing", version.ref = "coreTesting" }
+easy-random = {group = "org.jeasy", name = "easy-random-core", version.ref = "easy-random"}
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines-test"}
+
+# Hilt
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+
+# Dependencies of the included build-logic
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+ktlint-gradlePlugin = { module = "org.jlleitschuh.gradle:ktlint-gradle", version.ref = "ktlint" }
+ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+
+[bundles]
+compose = [
+    "androidx-lifecycle-runtime-ktx",
+    "activity-compose",
+    "ui",
+    "ui-tooling-preview",
+    "ui-tooling",
+    "compose-icons",
+    "compose-icons-extended",
+    "androidx-hilt-navigation-compose",
+    "androidx-ui-graphics",
+    "androidx-ui-test-manifest",
+    "androidx-ui-test-junit4",
+    "androidx-material3",
+    "androidx-lifecycle-runtime-compose",
+    "androidx-navigation-compose"
+]
+
+unit-test = [
+    "junit",
+    "ext-junit",
+    "kotlinx-coroutines-test",
+    "androidx-core-testing",
+    "mockk",
+    "easy-random"
+]
+
+retrofit = [
+    "retrofit",
+    "retrofit-converter-gson"
+]
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
+room = { id = "androidx.room", version.ref = "room" }
 
+# Plugins defined by this project
+greek-keno-android-application = { id = "greek.keno.android.application", version = "unspecified" }
+greek-keno-android-application-compose = { id = "greek.keno.android.application.compose", version = "unspecified" }
+greek-keno-android-feature = { id = "greek.keno.android.feature", version = "unspecified" }
+greek-keno-android-hilt = { id = "greek.keno.android.hilt", version = "unspecified" }
+greek-keno-android-ktlint = { id = "greek.keno.android.ktlint", version = "unspecified" }
+greek-keno-android-library = { id = "greek.keno.android.library", version = "unspecified" }
+greek-keno-android-library-compose = { id = "greek.keno.android.library.compose", version = "unspecified" }
+greek-keno-android-unit-test = { id = "greek.keno.android.unit-test", version = "unspecified" }
