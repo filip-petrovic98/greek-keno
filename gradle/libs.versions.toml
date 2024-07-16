@@ -4,14 +4,15 @@ coreSplashscreen = "1.0.1"
 kotlin = "1.9.22"
 androidxHiltNavigationCompose = "1.2.0"
 androidxComposeCompiler = "1.5.8"
+navigationCompose = "2.7.7"
 retrofit = "2.11.0"
-runtime = "1.6.6"
+runtime = "1.6.8"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 mockk = "1.13.10"
 lifecycleRuntimeKtx = "2.8.3"
 activityCompose = "1.9.0"
-composeBom = "2024.04.01"
+composeBom = "2024.06.00"
 kotlinx-coroutines-test = "1.8.0"
 easy-random = "5.0.0"
 hilt = "2.51"
@@ -24,7 +25,9 @@ coreTesting = "2.2.0"
 
 # UI
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
+androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycleRuntimeKtx" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
@@ -72,7 +75,9 @@ compose = [
     "androidx-ui-graphics",
     "androidx-ui-test-manifest",
     "androidx-ui-test-junit4",
-    "androidx-material3"
+    "androidx-material3",
+    "androidx-lifecycle-runtime-compose",
+    "androidx-navigation-compose"
 ]
 
 unit-test = [

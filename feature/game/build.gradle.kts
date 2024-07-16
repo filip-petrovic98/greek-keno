@@ -9,4 +9,9 @@ android {
 }
 
 dependencies {
+    implementation(projects.core.common)
+    implementation(projects.core.data)
+    implementation(projects.core.model)
+    implementation(projects.core.testing)
+    implementation(projects.core.ui)
 }

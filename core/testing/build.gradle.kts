@@ -5,6 +5,12 @@ plugins {
 
 android {
     namespace = "com.mozzartbet.greekkeno.core.testing"
+
+    packaging {
+        resources {
+            excludes += "/META-INF/*"
+        }
+    }
 }
 
 dependencies {

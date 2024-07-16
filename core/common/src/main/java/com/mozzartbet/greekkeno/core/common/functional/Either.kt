@@ -18,6 +18,11 @@ sealed class Either<out E, out R> {
         return this
     }
 
+    suspend fun onResult(action: suspend (R) -> Any): Either<E, R> {
+        if (this is Result) action(data)
+        return this
+    }
+
     fun onError(action: (E) -> Any): Either<E, R> {
         if (this is Error) action(data)
         return this
