@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="upcoming_draw_title">Kolo u %s</string>
+    <string name="draw_time">Vreme izvlačenja: %s</string>
+    <string name="draw_id">Kolo: %s</string>
+    <string name="remaining_time">Preostalo vreme za uplatu:</string>
+    <string name="odd_number">B.K</string>
+    <string name="odd">Kvota</string>
+    <string name="choose_balls">Odaberi loptice</string>
+    <string name="error_title">Greška</string>
+    <string name="error_description">Došlo je do greške, molimo Vas pokušajte ponovo.</string>
+    <string name="max_selected_balls_error">Odabrali ste maksimalan broj loptica</string>
+    <plurals name="number_of_selected_balls">
+        <item quantity="one">Odabrana %d loptica</item>
+        <item quantity="few">Odabrane %d loptice</item>
+        <item quantity="other">Odabrano %d loptica</item>
+    </plurals>
+</resources>
